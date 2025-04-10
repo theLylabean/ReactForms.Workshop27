@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function SignUpForm() {
+function SignUpForm({ setToken }) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
@@ -22,7 +22,7 @@ function SignUpForm() {
             const result = await res.json();
                 console.log(result)
 
-            handleSubmit();
+            setToken(result.token);
             } catch (error) {
                 setError(error.message)
             }
@@ -39,22 +39,40 @@ function SignUpForm() {
                 <form onSubmit={handleSubmit}>
                     <label>
                         <h3>
-                            Username:&nbsp;
+                            Username
+                            <br />
                         </h3>
+                        <div id='username'>
+                                <ul>
+                                    <li>Username must be between 8 and 16 characters long</li>
+                                </ul>
+                        </div>
                             <input 
-                            value={username} 
+                            value={username}
+                            required minLength='8'
+                            maxLength='16' 
                             onChange={(e) => setUsername(e.target.value)} />
                     </label>
 
                     <label>
                         <h3>
-                            Password:&nbsp;
+                            Password
                         </h3>
+                        <div id='password'>
+                                <ul>
+                                    <li>Password must be between 8 and 16 characters long</li>
+                                    <li>Password must have a special character</li>
+                                    <li>Password must have one capital letter</li>
+                                    <li>Password must have one number</li>
+                                </ul>
+                        </div>
                             <input 
                             value={password}
                             type='password'
+                            required pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$'
                             onChange={(e) => setPassword(e.target.value)} />
                     </label>
+                    <br />
                     <br />
                     <button>
                         Submit
