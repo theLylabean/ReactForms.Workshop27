@@ -1,7 +1,9 @@
-import { useState } from 'react'
-import './App.css'
-import SignUpForm from './components/SignUpForm'
-import Authenticate from './components/Authenticate'
+import { useState } from 'react';
+import './App.css';
+import SignUpForm from './components/SignUpForm';
+import Authenticate from './components/Authenticate';
+import './signupForm.css';
+import './authenticate.css';
 
 function App() {
   const [token, setToken] = useState(null);

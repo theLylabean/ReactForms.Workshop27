@@ -1,0 +1,20 @@
+body {
+    background-color: coral;
+}
+
+button {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 0 7px;
+    background-color: lightskyblue;
+}
+
+button:active {
+    box-shadow: 3px 2px 7px 1px;
+    transform: scale(0.9);
+}
+
+button:hover {
+    cursor: pointer;
+    /* filter: drop-shadow(0 0 10px rgb(186, 19, 251)); */
+}

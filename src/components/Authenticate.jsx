@@ -29,7 +29,7 @@ function Authenticate({ token }) {
             <h2>
                 Authenticate &nbsp;
             </h2>
-                {successMessage && <p>{successMessage.message}</p>}
+                {successMessage && <p style={{ color: 'green', fontWeight:'bold', fontSize: 'x-large' }}>{successMessage.message}</p>}
                 {error && <p>{error}</p>}
                 <button onClick={handleClick}>
                     Authenticate Token
